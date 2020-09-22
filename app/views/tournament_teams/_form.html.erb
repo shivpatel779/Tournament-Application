@@ -1,0 +1,33 @@
+<%= form_with(model: tournament_team, local: true) do |form| %>
+  <% if tournament_team.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tournament_team.errors.count, "error") %> prohibited this tournament_team from being saved:</h2>
+
+      <ul>
+        <% tournament_team.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :team_id  %>
+    <%= form.select :team_id, options_from_collection_for_select(Team.all, 'id', 'name')%>
+  </div>
+
+  <div class="field">
+    <%= form.label :tournament_id %>
+    <%= form.select :tournament_id, options_from_collection_for_select(Tournament.all, 'id', 'name')%>
+  </div>
+  <%if current_user.is_admin%>
+    <div class="field">
+      <%= form.label :approved, class: 'float-left'%>
+      <%= form.radio_button :is_approved, true %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit "Apply" %>
+  </div>
+<% end %>
