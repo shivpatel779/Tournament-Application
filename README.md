@@ -3,8 +3,6 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
-
 * Ruby version - 2.5.8
 
 * Rails Version - 6.0.3
@@ -30,7 +28,7 @@ Things you may want to cover:
 ## Project setup instructions
 * Clone the project
 
-* install bundle and run `bundle install`
+* install bundler and run `bundle install`
 
 * run `rake db:create` followed by `rake db:migrate` and `rake db:seed`
 
